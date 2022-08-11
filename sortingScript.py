@@ -13,6 +13,7 @@ KiwiWeights = Data["Weight(kg)"].tolist()
 
 #*******************  Bubble Sort *********************8
 def bubbleSort(Unsorted):
+
    #copy data into a new list
    List=Unsorted.copy()
    # Swap the elements to arrange in order
@@ -58,32 +59,21 @@ def partition(List, low, high):
   pivot = List[high]
   # pointer for greater element
   i = low - 1
-  # traverse through all elements
-  # compare each element with pivot
+  
   for j in range(low, high):
-    if List[j] <= pivot:
-      # if element smaller than pivot is found
-      # swap it with the greater element pointed by i
-      i = i + 1
-      # swapping element at i with element at j
+    if List[j] <= pivot:      
+      i = i + 1      
       (List[i], List[j]) = (List[j], List[i])
-  # swap the pivot element with the greater element specified by i
-  (List[i + 1], List[high]) = (List[high], List[i + 1])
-  # return the position from where partition is done
+  
+  (List[i + 1], List[high]) = (List[high], List[i + 1])   
   return i + 1
 
 # function to perform quicksort
 def quickSort(List, low, high): 
-  if low < high:
-
-    # find pivot element such that
-    # element smaller than pivot are on the left
-    # element greater than pivot are on the right
+  if low < high: 
     pi = partition(List, low, high)
-
     # recursive call on the left of pivot
     quickSort(List, low, pi - 1)
-
     # recursive call on the right of pivot
     quickSort(List, pi + 1, high)
     return List
@@ -95,3 +85,10 @@ print("****************** Quick Sort ***************")
 print("   ")
 print(QuickSortData)
  #****************** Quick Sort ***************
+
+
+ #**************** plotting map**************
+
+ 
+plt.plot( QuickSortData,'ro')
+plt.show()
